@@ -1,15 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
+{% load static %}
+{% load django_bootstrap5 %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
 
-<body>
-    hello world
-</body>
+{% block body %}
+<h1 class="text text-center">게시판</h1>
+<table class="table text-center align-middle">
+    <thead>
+        <th>ID</th>
+        <th>제목</th>
+        <th>영화 제목</th>
+        <th>영화 평점</th>
+        <th>시간</th>
+    </thead>
+    <tbody>
+        {% for review in reviews %}
+        <tr>
+            <td>{{review.pk}}</td>
+            <td><a href="{% url 'reviews:detail' review.pk %}">{{ review.title }}</td>
+            <td> {{ review.movie_name }} </td>
+            <td> {{ review.grade }} </td>
+            <td> {{ review.runnug_time }}분 </td>
+        </tr>
+        {% endfor %}
 
-</html>
+    </tbody>
+</table>
+{% endblock %}

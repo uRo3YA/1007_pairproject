@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="top d-flex justify-content-between mb-3">
+    <h1 class="">{{ review.title }}</h1>
+</div>
+<div>
+    <p class="text-muted">평점: {{ review.grade }}</p>
+</div>
+<div class="text">
+    <p class="text-muted mt-5 border border-3 p-3">{{ review.content | linebreaksbr }}</p>
+</div>
+<div class="detail-btn text-end">
+    <a href="{% url 'reviews:update' review.pk %}" class="btn btn-outline-success">수정</a>
+    <a href="{% url 'reviews:delete' review.pk %}" class="btn btn-outline-danger">삭제</a>
+</div>
+{% endblock body %}
