@@ -3,30 +3,40 @@
 {% load django_bootstrap5 %}
 
 {% block css %}
-<link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
 {% endblock %}
 
 {% block body %}
-<h1 class="text text-center">게시판</h1>
-<table class="table text-center align-middle">
+  <div class="bg-black d-flex justify-content-center">
+    <img class="" src="{% static 'images/netflix.png' %}" alt="img">
+  </div>
+  <h1 class="text text-center">게시판</h1>
+  <table class="table text-center align-middle">
     <thead>
-        <th>ID</th>
-        <th>제목</th>
-        <th>영화 제목</th>
-        <th>영화 평점</th>
-        <th>시간</th>
+      <th>ID</th>
+      <th>제목</th>
+      <th>영화 제목</th>
+      <th>영화 평점</th>
+      <th>시간</th>
     </thead>
     <tbody>
-        {% for review in reviews %}
+      {% for review in reviews %}
         <tr>
-            <td>{{review.pk}}</td>
-            <td><a href="{% url 'reviews:detail' review.pk %}">{{ review.title }}</td>
-            <td> {{ review.movie_name }} </td>
-            <td> {{ review.grade }} </td>
-            <td> {{ review.runnug_time }}분 </td>
-        </tr>
+          <td>{{review.pk}}</td>
+          <td>
+            <a href="{% url 'reviews:detail' review.pk %}">{{ review.title }}</td>
+            <td>
+              {{ review.movie_name }}
+            </td>
+            <td>
+              {{ review.grade }}
+            </td>
+            <td>
+              {{ review.runnug_time }}분
+            </td>
+          </tr>
         {% endfor %}
 
-    </tbody>
-</table>
-{% endblock %}
+      </tbody>
+    </table>
+  {% endblock %}
