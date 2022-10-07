@@ -55,3 +55,6 @@ def delete(request, pk):
     review.delete()
 
     return redirect("reviews:index")
+
+def main(request):
+    return render(request, "reviews/main.html")

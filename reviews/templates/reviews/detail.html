@@ -12,7 +12,7 @@
     <p class="text-muted mt-5 border border-3 p-3">{{ review.content | linebreaksbr }}</p>
   </div>
   <div class="detail-btn text-end">
-    <a href="{% url 'reviews:index' %}" class="btn btn-info">목록</a>
+    <a href="{% url 'reviews:index' %}" class="btn btn-outline-info">목록</a>
     <a href="{% url 'reviews:update' review.pk %}" class="btn btn-outline-success">수정</a>
     <a href="{% url 'reviews:delete' review.pk %}" class="btn btn-outline-danger">삭제</a>
 
